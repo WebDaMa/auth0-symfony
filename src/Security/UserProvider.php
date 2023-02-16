@@ -6,10 +6,10 @@ namespace Auth0\Symfony\Security;
 
 use Auth0\Symfony\Contracts\Security\UserProviderInterface;
 use Auth0\Symfony\Contracts\Models\UserInterface;
+use Auth0\Symfony\Contracts\ServiceInterface;
 use Auth0\Symfony\Models\Stateless\User as StatelessUser;
 use Auth0\Symfony\Models\Stateful\User as StatefulUser;
 use Auth0\Symfony\Models\User;
-use Auth0\Symfony\Service;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\UserInterface as SymfonyUserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface as SymfonyUserProviderInterface;
@@ -17,7 +17,7 @@ use Symfony\Component\Security\Core\User\UserProviderInterface as SymfonyUserPro
 final class UserProvider implements SymfonyUserProviderInterface, UserProviderInterface
 {
     public function __construct(
-        private Service $service
+        private ServiceInterface $service
     )
     {
     }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Auth0\Symfony\Security;
 
 use Auth0\Symfony\Contracts\Security\AuthorizerInterface;
-use Auth0\Symfony\Service;
+use Auth0\Symfony\Contracts\ServiceInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,13 +21,13 @@ final class Authorizer extends AbstractAuthenticator implements AuthorizerInterf
 {
     public function __construct(
         private array $configuration,
-        private Service $service,
+        private ServiceInterface $service,
         private LoggerInterface $logger
     )
     {
     }
 
-    public function getService(): Service
+    public function getService(): ServiceInterface
     {
         return $this->service;
     }

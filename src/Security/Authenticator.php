@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Auth0\Symfony\Security;
 
 use Auth0\Symfony\Contracts\Security\AuthenticatorInterface;
-use Auth0\Symfony\Service;
+use Auth0\Symfony\Contracts\ServiceInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +23,7 @@ final class Authenticator extends AbstractAuthenticator implements Authenticator
 {
     public function __construct(
         public array $configuration,
-        public Service $service,
+        public ServiceInterface $service,
         private RouterInterface $router,
         private LoggerInterface $logger
     )
